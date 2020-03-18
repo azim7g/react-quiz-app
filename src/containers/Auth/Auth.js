@@ -3,17 +3,16 @@ import classes from './Auth.module.css';
 import Button from "../../components/UI/Button/Button";
 import Input from "../../components/UI/Input/Input";
 import {connect} from "react-redux";
-import { uniqueId } from 'lodash';
 import * as actionCreators from "../../store/actions/auth";
 
 class Auth extends Component {
     renderInputs() {
         const { formControls, changeAuthInput } = this.props;
-        return Object.keys(formControls).map((controlName) => {
+        return Object.keys(formControls).map((controlName, index) => {
             const control = formControls[controlName];
             return (
                 <Input
-                    key={uniqueId()}
+                    key={controlName + index}
                     type={control.type}
                     value={control.value}
                     valid={control.valid}

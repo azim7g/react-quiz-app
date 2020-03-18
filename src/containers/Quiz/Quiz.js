@@ -5,11 +5,9 @@ import Loader from "../../components/UI/Loader/Loader";
 import classes from './Quiz.module.css';
 import {connect} from "react-redux";
 import * as actionCreators from "../../store/actions/quiz";
-
 // данный компонент отвечает за определенную викторину
 
 class Quiz extends Component {
-
     componentDidMount() {
         const { id } = this.props.match.params;
         this.props.fetchQuizById(id);

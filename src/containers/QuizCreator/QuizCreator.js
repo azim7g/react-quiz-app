@@ -5,7 +5,6 @@ import Input from "../../components/UI/Input/Input";
 import Auxiliary from "../../hoc/Auxiliary/Auxiliary";
 import classes from './QuizCreator.module.css';
 import {connect} from "react-redux";
-import {uniqueId} from 'lodash';
 import * as actionCreators from "../../store/actions/create";
 
 class QuizCreator extends Component {
@@ -14,7 +13,7 @@ class QuizCreator extends Component {
         return Object.keys(formControls).map((controlName, index) => {
             const control = formControls[controlName];
             return (
-                <Auxiliary key={uniqueId()}>
+                <Auxiliary key={controlName + index}>
                     <Input
                         label={control.label}
                         value={control.value}
